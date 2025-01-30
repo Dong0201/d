@@ -1,0 +1,132 @@
+/*视频播放页*/
+#Videoplayer_page{
+  top:0;
+  z-index:1;
+  width:100%;
+  height:100%;
+  right:-100%;
+  position:fixed;
+  background-color:black;
+  transition:0.3s transform;
+  }
+#videoplayer_page_mom{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  }
+#Videoplayer_page_video{
+  max-width:100%;
+  max-height:100%;
+  }
+#Videoplayer_page_controls_set{
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  position:absolute;
+  }
+.Videoplayer_page_controls_set_box{
+  width:100%;
+  height:100%;
+  display:flex;
+  position:relative;
+  align-items: center;
+  }
+.Videoplayer_page_controls_set_box header{
+  top:0;
+  left:0;
+  height:8%;
+  width:100%;
+  padding:10px;
+  display:flex;
+  position:absolute;
+  align-items:center;
+  }
+.Videoplayer_page_controls_set_box button{
+  height:50px;
+  aspect-ratio:1/1;
+  margin-left:5px;
+  margin-right:5px;
+  border-radius:50%;
+  }
+#Videoplayer_page_controls_set_box_return{
+  background-color:white;
+  -webkit-mask:url('../../img/icon/return.png')center/50% no-repeat;
+  }
+#Videoplayer_page_controls_set_box_videoname{
+  width:75%;
+  color:white;
+  font-weight:500;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  }
+#Videoplayer_page_controls_set_box_lock{
+  width:40px;
+  margin:0 5%;
+  aspect-ratio:1/1;
+  border-radius:50%;
+  background-size:100%;
+  background-repeat:no-repeat;
+  background-position: center;
+  background-image:url("../../img/icon/Locking.webp");
+  }
+.Videoplayer_page_controls_set_box footer{
+  left:0;
+  bottom:5%;
+  width:100%;
+  height:70px;
+  position:absolute;
+  }
+.Videoplayer_page_controls_set_box_tit_box{
+  width:100%;
+  height:20px;
+  display:flex;
+  align-items:center;
+  }
+.Videoplayer_page_controls_set_box_tit_box input{
+  width:70%;
+  height:1.5px;
+  }
+#Videoplayer_page_controls_set_box_tit_box_ProgressBar::-webkit-slider-thumb {  
+  -webkit-appearance: none;/*清除系统默认样式*/  
+   height:12px;/*拖动块高度*/  
+   width:12px;/*拖动块宽度*/  
+   border-radius:50%;
+   background-color:white;
+  }
+.Videoplayer_page_controls_set_box_tit_box time{
+  width:15%;
+  color:white;
+  padding:5px;
+  font-size:12.5px;
+  text-align:center;
+  }
+#Videoplayer_page_controls_set_box_tit_box_spin{
+  width:40px;
+  margin-left:85%;
+  aspect-ratio:1/1;
+  border-radius:50%;
+  background-color:white;
+  -webkit-mask:url('../../img/icon/Rts.png')center/50% no-repeat;
+  }
+/*进度条*/
+input[type=range] { 
+  cursor: pointer;
+  transition:0.3s;
+  border-radius:5px;
+  background-color:#eee;
+  -webkit-appearance:none;
+  background-size:0% 100%;
+  background-repeat:no-repeat;
+  background-image:linear-gradient(to right,#00fdff,#009dff,#0065ff);
+  }
+input[type=range]::-webkit-slider-thumb {  
+   height:5px;/*拖动块高度*/  
+   width:5px;/*拖动块宽度*/  
+   border-radius:50%;
+   background-color:#ff0051;
+   -webkit-appearance: none;/*清除系统默认样式*/  
+  }  

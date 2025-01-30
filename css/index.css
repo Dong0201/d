@@ -1,0 +1,113 @@
+html{
+  overflow:hidden;
+  background-color:black;
+  }
+body{
+  margin:0;
+  padding:0;
+  height:100vh;
+  overflow:hidden;
+  }
+#mom{
+  float:left;
+  width:100%;
+  height:100%;
+  position:relative;
+  background-color:rgba(0,0,0,0.3);
+  }
+#mom::after{
+  top:0;
+  left:0;
+  z-index:-1;
+  content:"";
+  width:100%;
+  height:100%;
+  position:absolute;
+  background-size:cover;
+  background-color:#888;
+  background-position: center;
+  background-image:url('../img/bg.png');
+  }
+.qq_logo_box{
+  width:90%;
+  height:50px;
+  display:flex;
+  margin-top:25%;
+  margin-left:5%;
+  align-items: center;
+  }
+.qq_logo{
+  height:100%;
+  aspect-ratio:1/1;
+  -webkit-mask-size:100%;
+  background-color:white;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask:url('../img/logo.png')100% 100%/cover;
+  }
+.qq_logo_box h6{
+  color:white;
+  font-size:50px;
+  font-weight:300;
+  }
+.AccountPassword_box{
+  width:90%;
+  display:flex;
+  margin-left:5%;
+  border-bottom:1px solid #ddd;
+  }
+.AccountPassword_box input{
+  width:70%;
+  height:50px;
+  border:none;
+  outline:none;
+  color:#ffffff;
+  font-size:20px;
+  background-color:Transparent;
+  }
+.AccountPassword_box input::placeholder{
+  color:#ddd;
+  }
+#qq_ProfilePhoto{
+  height:40px;
+  margin-top:7px;
+  margin-left:40px;
+  aspect-ratio:1/1;
+  border-radius:50%;
+  background-size:100% 100%;
+  }
+#qq_password_EI{
+  height:40px;
+  margin-top:7px;
+  margin-left:40px;
+  aspect-ratio:1/1;
+  border-radius:50%;
+  -webkit-mask-size:50%;
+  -webkit-mask:url('../img/icon/implicit.png')center/50%;
+  -webkit-mask-repeat: no-repeat;
+  background-color:white;
+  }
+#Sign{
+  width:90%;
+  height:40px;
+  border:none;
+  outline:none;
+  color:#ffffff;
+  margin-top:15%;
+  margin-left:5%;
+  font-size:15px;
+  border-radius:2.5px;
+  background-color:#00a1ff;
+  }
+.wz_box{
+  width:90%;
+  color:#00a1ff;
+  margin-left:5%;
+  margin-top:2.5%;
+  }
+.Agree{
+  width:90%;
+  bottom:5%;
+  margin-left:5%;
+  text-align:center;
+  position:absolute;
+  }
