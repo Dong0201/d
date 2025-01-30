@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Ai大师起名</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  .container {
+    max-width: 600px;
+    margin: auto;
+  }
+  input[type="text"], select {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  button {
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  #result {
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Ai大师起名</h2>
+  <label for="fatherSurname">爸爸的姓氏：</label>
+  <input type="text" id="fatherSurname" placeholder="输入姓氏">
+  
+  <label for="motherSurname">妈妈的姓氏：</label>
+  <input type="text" id="motherSurname" placeholder="输入姓氏">
+  
+  <label for="nameLength">选择名字长度：</label>
+  <select id="nameLength">
+    <option value="2">两个字</option>
+    <option value="3">三个字</option>
+  </select>
+  
+  <button id="generateName">Ai大师起名</button>
+  
+  <div id="result"></div>
+</div>
+
+<script>
+document.getElementById('generateName').addEventListener('click', function() {
+  var resultDiv = document.getElementById('result');
+  var fatherSurname = document.getElementById('fatherSurname').value.trim();
+  var nameLength = parseInt(document.getElementById('nameLength').value, 10);
+  
+  if (!fatherSurname) {
+    resultDiv.innerHTML = '请填写爸爸的姓氏。';
+    return;
+  }
+  
+  // 清空之前的结果
+  resultDiv.innerHTML = '加载中...';
+  
+  // 指定的汉字列表
+  var chineseChars = ['文', '博', '明', '瑞', '佳', '欣', '哲', '思', '涵', '梓','云','泽','瑜','文'];
+  
+  // 模拟异步操作，例如从服务器获取名字
+  setTimeout(function() {
+    // 随机生成名字的第二个或后两个字
+    var randomChineseChars = '';
+    for (var i = 1; i < nameLength; i++) { // 从1开始，因为第一个字符是姓氏
+      var randomIndex = Math.floor(Math.random() * chineseChars.length);
+      randomChineseChars += chineseChars[randomIndex];
+    }
+    var generatedName = fatherSurname + randomChineseChars;
+    resultDiv.innerHTML = 'Ai大师起的名：' + generatedName;
+  }, 500); // 0.5秒后显示结果
+});
+</script>
+</body>
+</html>

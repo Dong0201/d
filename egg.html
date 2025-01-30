@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" onselectstart="return false">
+<head>
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>EasterEgg</title>
+<link href="./css/index/index.css" rel="stylesheet">
+</head>
+<body>
+<section id="index"><video id="bgvideo" src="./video/bg.mp4" poster="none" loop muted autoplay></video></section>
+<section class="h"><div class="h_box"><h3 class="h_box_title">警告/WARNING</h3><div class="h_box_content">本アプリの内容はアダルトコンテンツを含む場合があります。 本アプリのコンテンツを18歳未満の方に配布、回覧、販売、レンタル、引き渡し、貸与することはできません</div><div class="h_box_buttons"><button>18歳未満</button><button>満18歳</button></div></div></section>
+<!--视频播放页-->
+<section id="Videoplayer_page"><div id="videoplayer_page_mom"><video id="Videoplayer_page_video" loop poster="none"></video><div id="Videoplayer_page_controls_set"><section class="Videoplayer_page_controls_set_box"><header id="Videoplayer_page_controls_set_box_topControls"><button id="Videoplayer_page_controls_set_box_return"></button><i id="Videoplayer_page_controls_set_box_videoname">作者</i></header><button id="Videoplayer_page_controls_set_box_lock" data-status="false"></button><footer id="Videoplayer_page_controls_set_box_bottomControls"><div class="Videoplayer_page_controls_set_box_tit_box"><time id="Videoplayer_page_controls_set_box_tit_box_currentTime">00:00</time><input type="range" id="Videoplayer_page_controls_set_box_tit_box_ProgressBar" max="100" value="0" step="0.01"/><time id="Videoplayer_page_controls_set_box_tit_box_duration">00:00</time></div><button id="Videoplayer_page_controls_set_box_tit_box_spin" data-Fullscreen="false"></button></footer></section></div></div></section>
+<script>
+window.onload=()=>{
+ const Height=window.innerHeight;
+ index.style.height=Height+'px';
+ }
+const h_box_buttons=document.querySelectorAll(".h_box_buttons button");
+h_box_buttons[0].onclick=()=>{
+  videoPlayer({
+    url:"https://alimov2.a.kwimgs.com/upic/2021/08/31/08/BMjAyMTA4MzEwODU2NTZfMjQ2NjU0NjU3M181NjMyMDM4MDEzNV8yXzM=_b_B1d1e4c958fdf57ebec5c1b60ceb48372.mp4?clientCacheKey=3x36ggff382emgk_b.mp4&tt=b&di=2780e1bd&bp=10000",
+    name:"1000024801.mp4"
+    });
+  }
+h_box_buttons[1].onclick=()=>{
+  videoPlayer({
+    url:"https://vdse.bdstatic.com/192d9a98d782d9c74c96f09db9378d93.mp4",
+    name:"男性字幕なし_ectype1.mp4"
+    });
+  }
+//视频播放页
+function videoPlayer(data){
+  Videoplayer_page_video.src=data.url;
+  Videoplayer_page_controls_set_box_videoname.innerText=data.name;
+  Videoplayer_page.style.transform="translateX(-100%)";
+  Videoplayer_page_video.play();
+}
+Videoplayer_page_controls_set_box_return.onclick=Videoplayer_pag_return;
+function Videoplayer_pag_return(){
+  if(isFullScreen()){
+  document.body.style.opacity=0;
+  videoplayer_page_mom.style.opacity=0;
+  setTimeout(()=>{
+  ExitFullScreen();
+ },100);
+  setTimeout(()=>{
+  document.body.style.opacity=1;
+  setTimeout(()=>{
+  videoplayer_page_mom.style.opacity=1;
+  },200);
+  },500);
+  }
+  Videoplayer_page_video.pause();
+  Videoplayer_page.style.transform="translateX(0)";
+}//关闭视频播放器页
+//视频播放事件
+Videoplayer_page_video.addEventListener("loadedmetadata",function (){
+  var duration=this.duration;
+//控制进度条
+  let Videoplayer_page_ProgressBarTimeout;
+  Videoplayer_page_controls_set_box_tit_box_ProgressBar.oninput=function (){
+  clearTimeout(Videoplayer_page_ProgressBarTimeout);  
+Videoplayer_page_ProgressBarTimeout=setTimeout(()=>{
+  Videoplayer_page_video.play();
+  },300);
+  try {
+  Videoplayer_page_video.currentTime=this.value*0.01*duration;
+  }catch (e) {
+  alert("发生异常:" + e);
+  }
+}
+//视频总时长
+  var dm=Math.floor(duration%3600/60);
+  var ds=Math.floor(duration%60);
+  dm=dm>=10?dm:"0"+dm;
+  ds=ds>=10?ds:"0"+ds;
+  Videoplayer_page_controls_set_box_tit_box_duration.innerText=dm+":"+ds;
+Videoplayer_page_video.ontimeupdate=function (){
+//视频当前时间
+  var currentTime=this.currentTime;
+  var cm=Math.floor(currentTime%3600/60);
+  var cs=Math.floor(currentTime%60);
+  cm=cm>=10?cm:"0"+cm;
+  cs=cs>=10?cs:"0"+cs;
+  Videoplayer_page_controls_set_box_tit_box_currentTime.innerText=cm+":"+cs;
+//视频进度
+  var value=currentTime/duration*100;
+  Videoplayer_page_controls_set_box_tit_box_ProgressBar.value=value;
+  Videoplayer_page_controls_set_box_tit_box_ProgressBar.style.backgroundSize=value+'% 100%';
+}
+});
+//是否锁屏
+Videoplayer_page_controls_set_box_lock.onclick=function (){
+  let isLock;
+  let icon;
+  if(this.getAttribute("data-status")==="false"){
+  isLock=true;
+  icon="./img/icon/Unlock.webp";
+  Videoplayer_page_controls_set_box_topControls.style.display="none";
+  Videoplayer_page_controls_set_box_bottomControls.style.display="none";
+  }else{
+  isLock=false;
+  icon="./img/icon/Locking.webp";
+  Videoplayer_page_controls_set_box_topControls.style.display="flex";
+  Videoplayer_page_controls_set_box_bottomControls.style.display="block";
+  }
+  this.setAttribute("data-status",isLock);
+  this.style.backgroundImage=`url(${icon})`;
+}
+//点击播放页让控件显隐
+let Videoplayer_page_Timeout;
+Videoplayer_page.onclick=function (){
+  clearTimeout(Videoplayer_page_Timeout);
+  Videoplayer_page_controls_set.style.display="block";
+  Videoplayer_page_Timeout=setTimeout(()=>{
+  Videoplayer_page_controls_set.style.display="none";
+  },3000);
+}
+//双击播放与暂停
+videoplayer_page_mom.ondblclick=function (){
+  if(Videoplayer_page_video.paused){
+  Videoplayer_page_video.play();
+  }else{
+  Videoplayer_page_video.pause();
+  }
+}
+//全屏
+Videoplayer_page_controls_set_box_tit_box_spin.onclick=function (){
+  let isFullscreen;
+  document.body.style.opacity=0;
+  videoplayer_page_mom.style.opacity=0;
+  setTimeout(()=>{
+  if(this.getAttribute("data-Fullscreen")==="false"){
+  isFullscreen=true;
+  //进入全屏
+  if(Videoplayer_page.requestFullscreen){
+  Videoplayer_page.requestFullscreen();
+  }else if(Videoplayer_page.mozRequestFullscreen){
+  Videoplayer_page.mozRequestFullscreen();
+  }else if(Videoplayer_page.webkitRequestFullscreen){
+  Videoplayer_page.webkitRequestFullscreen();
+  }else if(Videoplayer_page.msRequestFullscreen){
+  Videoplayer_page.msRequestFullscreen();
+  }
+  }else{
+  isFullscreen=false;
+  ExitFullScreen();
+  }
+  this.setAttribute("data-Fullscreen",isFullscreen);
+  },100);
+  setTimeout(()=>{
+  document.body.style.opacity=1;
+  setTimeout(()=>{
+  videoplayer_page_mom.style.opacity=1;
+  },200);
+  },500);
+}
+//退出全屏
+var ExitFullScreen=()=>{
+  if(document.exitFullScreen) {
+  document.exitFullScreen();
+  }else if(document.mozCancelFullScreen) {
+  document.mozCancelFullScreen();
+  }else if(document.webkitExitFullscreen) {
+  document.webkitExitFullscreen();
+  }else if(document.msExitFullscreen) {
+  document.msExitFullscreen();
+  }
+}
+//是否全屏
+function isFullScreen(){ 
+  return ((document.fullscreenElement && document.fullscreenElement !== null) || (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) || (document.mozFullScreenElement && document.mozFullScreenElement !== null) || (document.msFullscreenElement && document.msFullscreenElement !== null) ); 
+}
+</script>
+</body>
+</html>

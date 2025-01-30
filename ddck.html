@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多点触控测试</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        #touchArea {
+            width: 80%;
+            height: 80%;
+            background-color: #fff;
+            border: 2px dashed #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        #output {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div id="touchArea">
+    <div id="output">当前触摸点数: 0</div>
+</div>
+
+<script>
+    const touchArea = document.getElementById('touchArea');
+    const output = document.getElementById('output');
+
+    touchArea.addEventListener('touchstart', (event) => {
+        event.preventDefault(); // 防止页面滚动
+        const touchCount = event.touches.length;
+        output.textContent = `当前触摸点数: ${touchCount}`;
+    });
+
+    touchArea.addEventListener('touchmove', (event) => {
+        event.preventDefault(); // 防止页面滚动
+        const touchCount = event.touches.length;
+        output.textContent = `当前触摸点数: ${touchCount}`;
+    });
+
+    touchArea.addEventListener('touchend', (event) => {
+        const touchCount = event.touches.length;
+        output.textContent = `当前触摸点数: ${touchCount}`;
+    });
+</script>
+
+</body>
+</html>

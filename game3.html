@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>DongGame3</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+    overflow: hidden;
+    touch-action: none;
+  }
+  #gameCanvas {
+    border: 1px solid #000;
+    touch-action: none;
+  }
+  #difficultySelection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #difficultySelection button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+</style>
+</head>
+<body>
+<div id="difficultySelection">
+  <button onclick="startGame('easy')">简单</button>
+  <button onclick="startGame('medium')">中等</button>
+  <button onclick="startGame('hard')">困难</button>
+</div>
+<canvas id="gameCanvas" width="300" height="500" style="display: none;"></canvas>
+<script>
+  let ballSpeed = 1;
+  let platformWidth = 75;
+
+  function startGame(difficulty) {
+    const difficultySelection = document.getElementById('difficultySelection');
+    const gameCanvas = document.getElementById('gameCanvas');
+    difficultySelection.style.display = 'none';
+    gameCanvas.style.display = 'block';
+
+    switch (difficulty) {
+      case 'easy':
+        ballSpeed = 1;
+        platformWidth = 300 * 3 / 8;
+        break;
+      case 'medium':
+        ballSpeed = 1.25;
+        platformWidth = 300 * 3 / 9;
+        break;
+      case 'hard':
+        ballSpeed = 1.5;
+        platformWidth = 300 * 1 / 4;
+        break;
+    }
+
+    initGame();
+  }
+
+  function initGame() {
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    let playerX = canvas.width / 2 - platformWidth / 2;
+
+    class Ball {
+      constructor(x, y, radius, color, dx, dy) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.color = color;
+        this.dx = dx;
+        this.dy = dy;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.closePath();
+      }
+
+      update() {
+        this.x += this.dx;
+        this.y += this.dy;
+
+        if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
+          this.dx = -this.dx;
+        }
+        if (this.y - this.radius < 0) {
+          this.dy = -this.dy;
+        }
+        if (this.y + this.radius > canvas.height) {
+          this.dy = -this.dy;
+        }
+      }
+
+      collidesWithPlatform(platform) {
+        if (
+          this.x + this.radius > platform.x &&
+          this.x - this.radius < platform.x + platform.width &&
+          this.y + this.radius > platform.y &&
+          this.y - this.radius < platform.y + platform.height
+        ) {
+          if (this.dy > 0) {
+            this.dy = -this.dy;
+            this.y = platform.y - this.radius;
+          }
+          return true;
+        }
+        return false;
+      }
+    }
+
+    class Player {
+      constructor(x, y, width, height, color) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.color = color;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.rect(this.x, this.y, this.width, this.height);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.closePath();
+      }
+    }
+
+    const ball = new Ball(150, 100, 10, 'red', ballSpeed, ballSpeed);
+    const player = new Player(playerX, canvas.height - 30, platformWidth, 20, 'blue');
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ball.draw();
+      ball.update();
+
+      ball.collidesWithPlatform(player);
+      player.draw();
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    let touchStartX, playerStartX;
+
+    canvas.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      playerStartX = player.x;
+    }, false);
+
+    canvas.addEventListener('touchmove', (e) => {
+      const touchEndX = e.touches[0].clientX;
+      player.x = playerStartX + (touchEndX - touchStartX);
+      player.x = Math.max(0, Math.min(canvas.width - player.width, player.x));
+    }, false);
+  }
+</script>
+</body>
+</html>

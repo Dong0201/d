@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>QQ登录测试版</title>
+<link href="./css/index.css" rel="stylesheet">
+</head>
+<body>
+<section id="mom">
+<div class="qq_logo_box"><div class="qq_logo"></div><h6>QQ</h6></div>
+<div class="AccountPassword_box" style="margin-top:20%;"><input type="text" id="qq_input_Account" placeholder="QQ号/手机号/邮箱"/><div id="qq_ProfilePhoto"></div></div>
+<div class="AccountPassword_box"><input type="password" id="qq_input_Password" placeholder="密码"/><div id="qq_password_EI"></div></div>
+<button id="Sign">登录</button>
+<a href="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=1&redirect_uri=1">使用QQ登录网页版授权一键登录</a>
+<div class="wz_box"><samp>忘记密码？</samp><samp style="float:right;">新用户注册</samp></div>
+<samp class="Agree">登录及代表阅读并同意<samp style="color:#00a1ff;">服务条款</samp></samp>
+</section>
+<script>
+window.onload=()=>{
+ mom.style.height=document.body.clientHeight+'px';
+ }
+//QQ头像
+qq_input_Account.oninput=function (){
+qq_ProfilePhoto.style.backgroundImage=`url(https://q1.qlogo.cn/g?b=qq&nk=${this.value}&s=640)`;
+}
+//密码显隐
+qq_password_EI.onclick=()=>{
+var icon;
+if(qq_input_Password.type==="password"){
+icon="explicit";
+qq_input_Password.type="text";
+}else{
+icon="implicit";
+qq_input_Password.type="password";
+}
+qq_password_EI.style.webkitMask=`url(./img/icon/${icon}.png)center/50%`;
+qq_password_EI.style.webkitMaskRepeat="no-repeat";
+}
+</script>
+<style>
+
+</style>
+</body>
+</html>

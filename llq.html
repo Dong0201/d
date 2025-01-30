@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dong浏览器</title>
+<h1>Dong浏览器</h1>
+<!-- 引入Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+  /* 自定义搜索框和按钮的样式 */
+  .search-box {
+    position: relative;
+    top:200px;
+    display: inline-block;
+    width: 100%;
+    max-width: 600px; /* 设置最大宽度 */
+    margin: 200px auto; /* 上下外边距50px，自动左右居中 */
+  }
+
+  .search-box input[type="text"] {
+    width: 100%;
+    padding: 24px;
+    border: 3px solid #aaa999;
+    border-radius: 20px; /* 更大的圆角 */
+    font-size: 18px; /* 更大的字体大小 */
+  }
+
+  .search-box button {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 17px; /* 圆角 */
+    background-color: #007bff;
+    color: white;
+    font-size: 16.5px; /* 更大的字体大小 */
+    cursor: pointer;
+  }
+
+  .search-box button:hover {
+    background-color: #0056b3;
+  }
+  .picture{
+    position:absolute;
+    top:165px;
+    left:85px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="search-box">
+    <!-- 搜索框 -->
+    <input type="text" id="search-input" placeholder="" class="form-control">
+    <!-- 搜索按钮 -->
+    <button type="button" onclick="searchBing()">
+      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+        <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+      </svg>
+    </button>
+  </div>
+</div>
+<div>
+    <img src="appIcon.png" width="200px" class="picture"/>
+<div/>
+<script>
+  function searchBing() {
+    var query = document.getElementById('search-input').value;
+    var bingUrl = "https://www.bing.com/search?q=" + encodeURIComponent(query);
+    window.location.href = bingUrl;
+  }
+</script>
+<h2>搜索或输入网址</h2>
+
+<!-- 引入Bootstrap JS和依赖的Popper.js和jQuery -->
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

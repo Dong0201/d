@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新用户注册</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="%23f0f0f0"><path d="M-200 700Q0 1050 200 900T600 700T1200 900T1600 700V1300H-200V700Z" fill="%23a777e3"/><path d="M-200 900Q0 650 200 900T600 900T1200 650T1600 900V1600H-200V900Z" fill="%236e8efb"/></svg>');
+        background-size: cover;
+    }
+    .register-container {
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+        margin: auto;
+        opacity: 0;
+        animation: fadeIn 1.5s ease-out forwards;
+    }
+    .register-container h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 24px;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #666;
+    }
+    .form-group input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    .form-group button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 4px;
+        background-color: #28a745;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .form-group button:hover {
+        background-color: #218838;
+    }
+    .links {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .links a {
+        color: #007BFF;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    .links a:hover {
+        text-decoration: underline;
+    }
+    .error-message {
+        color: #FF4136;
+        text-align: center;
+        margin-top: 15px;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+<div class="register-container">
+    <h2>注册</h2>
+    <div class="form-group">
+        <label for="reg-username">用户名</label>
+        <input type="text" id="reg-username" name="username" required>
+    </div>
+    <div class="form-group">
+        <label for="reg-password">密码</label>
+        <input type="password" id="reg-password" name="password" required>
+    </div>
+    <div class="form-group">
+        <button type="button" onclick="handleRegister()">注册</button>
+    </div>
+    <div class="error-message" id="error-message"></div>
+    <div class="links">
+        <a href="index.html">已有账号？点击登录</a>
+    </div>
+</div>
+
+<script>
+    function handleRegister() {
+        var username = document.getElementById('reg-username').value;
+        var password = document.getElementById('reg-password').value;
+        var errorMessage = document.getElementById('error-message');
+
+        if (username && password) {
+            localStorage.setItem('user-' + username, password);
+            errorMessage.textContent = '注册成功！3秒后将跳转至登录界面';
+            setTimeout(function() {
+                window.location.href = 'index.html'; // 跳转至登录页面
+            }, 3000);
+        } else {
+            errorMessage.textContent = '用户名和密码不能为空';
+        }
+    }
+</script>
+</body>
+</html>

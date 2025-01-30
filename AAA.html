@@ -1,0 +1,473 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+        
+  
+      <script src="js/wc-3.0.6.min.js"></script>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="instap">
+        <link rel="icon" href="appIcon.png">
+        <title>百宝箱主页</title>
+        <link href="css/m.1fa67fb2.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/chunk-b601d230.77c44edd.css">
+            <style type="text/css">
+        .text1 {
+            font-size: 45px;
+            font-weight: normal;
+            text-transform: uppercase;
+            /*大写 lowercase小写；capitalize单词首字母大写*/
+            fill: none;
+            stroke: #B0E0E6;
+            stroke-width: 2px;
+            stroke-dasharray: 90 310;
+            animation: stroke 6s infinite linear;
+        }
+
+        .text-1 {
+            stroke: #FFEC8B;
+            animation-delay: -1.5s;
+            text-shadow: 5px 5px 5px #FFEC8B;
+        }
+
+        .text-2 {
+            stroke: #AEEEEE;
+            animation-delay: -3s;
+            text-shadow: 5px 5px 5px #7FFFD4;
+        }
+
+        .text-3 {
+            stroke: #EEE0E5;
+            animation-delay: -4.5s;
+            text-shadow: 5px 5px 5px #7FFFD4;
+        }
+
+        .text-4 {
+            stroke: #FFC1C1;
+            animation-delay: -6s;
+            text-shadow: 5px 5px 5px #7FFFD4;
+        }
+
+        @keyframes stroke {
+            to {
+                stroke-dashoffset: -400;
+            }
+        }
+    </style>
+</head>
+
+<body _c_t_j1="1" style="">
+    <div id="app">
+        <div data-v-1f9b29e2="" class="page-wrap">
+            <div data-v-1f9b29e2="" class="main-page" style="padding-top: 54px;">
+                <div data-v-1f9b29e2="" class="nav">
+                    <span data-v-1f9b29e2="" class="logo"></span>
+                    <!---->
+                  <a data-v-1f9b29e2="" href="index.html" class="app-qr">退出登录</a>
+                    <!---->
+                </div>
+              
+                <div data-v-1f9b29e2="" class="new-header">
+                    <div data-v-1f9b29e2="" class="user-profile">
+                        <div data-v-1f9b29e2="" class="photo-wrap">
+                            <!---->
+
+                            <div data-v-1f9b29e2="" class="mood">
+                                <div data-v-1f9b29e2="" class="mood-content">
+                                    <svg width="100%" height="80" style="margin:-30px auto">
+                                    
+                                        <text text-anchor="middle" x="50%" y="50%" class="text1 text-1">
+                                            namsizsoft
+                                        </text>
+                                        <text text-anchor="middle" x="50%" y="50%" class="text1 text-2">
+                                            namsizsoft
+                                        </text>
+                                        <text text-anchor="middle" x="50%" y="50%" class="text1 text-3">
+                                            namsizsoft
+                                        </text>
+                                        <text text-anchor="middle" x="50%" y="50%" class="text1 text-4">
+                                            namsizsoft
+                                        </text>
+                                    </svg>
+                                   
+                                </div>
+                            </div>
+                            <div data-v-1f9b29e2="" class="photo">
+                                <img data-v-1f9b29e2="" src="img/tx.png">
+                            </div>
+                        </div>
+                        <div data-v-1f9b29e2="" class="name">
+                            <span data-v-1f9b29e2="" class="gender-icon man"></span> Dong
+                            <span data-v-1f9b29e2="" class="constellation-icon" style="margin: 0px 0px 6px 10px;"></span>
+                        </div>
+                        <p data-v-1f9b29e2="" class="desc">DongToolsBox</p>
+                    </div>
+                    
+ <!--现在时间开始-->
+
+<span id=localtime></span>
+
+<script type="text/javascript">
+
+function showLocale(objD)
+
+{
+
+ var str,colorhead,colorfoot;
+
+ var yy = objD.getYear();
+
+ if(yy<1900) yy = yy+1900;
+
+ var MM = objD.getMonth()+1;
+
+ if(MM<10) MM = '0' + MM;
+
+ var dd = objD.getDate();
+
+ if(dd<10) dd = '0' + dd;
+
+ var hh = objD.getHours();
+
+ if(hh<10) hh = '0' + hh;
+
+ var mm = objD.getMinutes();
+
+ if(mm<10) mm = '0' + mm;
+
+ var ss = objD.getSeconds();
+
+ if(ss<10) ss = '0' + ss;
+
+ var ww = objD.getDay();
+
+ if ( ww==0 ) colorhead="<font color=\"#50c4e5\">";
+
+ if ( ww > 0 && ww < 6 ) colorhead="<font color=\"#50c4e5\">";
+
+ if ( ww==6 ) colorhead="<font color=\"#50c4e5\">";
+
+ if (ww==0) ww="星期日";
+
+ if (ww==1) ww="星期一";
+
+ if (ww==2) ww="星期二";
+
+ if (ww==3) ww="星期三";
+
+ if (ww==4) ww="星期四";
+
+ if (ww==5) ww="星期五";
+
+ if (ww==6) ww="星期六";
+
+ colorfoot="</font>"
+
+ str = colorhead + yy + "年" + MM + "月" + dd + "日 " + hh + "点" + mm + "分" + ss + "秒 " + ww + colorfoot;
+
+ return(str);
+
+}
+
+function tick()
+
+{
+
+ var today;
+
+ today = new Date();
+
+ document.getElementById("localtime").innerHTML = showLocale(today);
+
+ window.setTimeout("tick()", 1000);
+
+}
+
+tick();
+
+</script>
+<div style="float:right">本应用已完成制作[<SPAN id=span_dt_dt style="color: #228B22; "></SPAN> <SCRIPT language=javascript>function show_date_time(){
+
+window.setTimeout("show_date_time()", 1000);
+
+BirthDay=new Date("1/25/2025 00:00:00");
+
+today=new Date();
+
+timeold=(today.getTime()-BirthDay.getTime());
+
+sectimeold=timeold/1000
+
+secondsold=Math.floor(sectimeold);
+
+msPerDay=24*60*60*1000
+
+e_daysold=timeold/msPerDay
+
+daysold=Math.floor(e_daysold);
+
+e_hrsold=(e_daysold-daysold)*24;
+
+hrsold=Math.floor(e_hrsold);
+
+e_minsold=(e_hrsold-hrsold)*60;
+
+minsold=Math.floor((e_hrsold-hrsold)*60);
+
+seconds=Math.floor((e_minsold-minsold)*60);
+
+span_dt_dt.innerHTML='<font style=color:#FF0000>'+daysold+'</font> 天 <font style=color:#FF0000>'+hrsold+'</font> 时 <font style=color:#FF0000>'+minsold+'</font> 分 <font style=color:#FF0000>'+seconds+'</font> 秒';
+
+}
+
+show_date_time();</script>]
+
+<html>
+</style>
+                 <!--联系页-->
+      <center> <div class="annui">
+         <div class="an1">
+                      <button id="ttt"><a href="geren.html"><h2>联系作者</h2></a>
+                      <button id="ttt"><a href="zuye.html"><h2>更多功能</h2></a>
+                      </div>
+      
+      
+           </div>
+            </div>
+            </center>
+      
+                        <div data-v-1f9b29e2="" class="app-list">
+      
+                            <a data-v-1f9b29e2="" href="yh/1.html" class="item" style="opacity: 1;">
+                                <div data-v-1f9b29e2="" class="content-wrap">
+                                    <div data-v-1f9b29e2="" class="img-wrap">
+                                        <img data-v-1f9b29e2="" src="img/1.jpg">
+                                    </div>
+                                    <p data-v-1f9b29e2="" class="app-name">烟花</p>
+                                </div>
+                            </a>
+       
+                            <a data-v-1f9b29e2="" href="mf/1.html" class="item" style="opacity: 1;">
+                                <div data-v-1f9b29e2="" class="content-wrap">
+                                    <div data-v-1f9b29e2="" class="img-wrap">
+                                        <img data-v-1f9b29e2="" src="img/2.jpg" alt="">
+                                    </div>
+                                    <p data-v-1f9b29e2="" class="app-name">魔方</p>
+                                </div>
+                            </a>
+ 
+                     <a data-v-1f9b29e2="" href="yszqb/1.html" class="item" style="opacity: 1;">
+                                <div data-v-1f9b29e2="" class="content-wrap">
+                                    <div data-v-1f9b29e2="" class="img-wrap">
+                                        <img data-v-1f9b29e2="" src="img/11.jpg" alt="">
+                                    </div>
+                                    <p data-v-1f9b29e2="" class="app-name">元素周期表</p>
+                                </div>
+                            </a>
+ 
+     <a data-v-1f9b29e2="" href="my/1.html" class="item" style="opacity: 1;">
+                                <div data-v-1f9b29e2="" class="content-wrap">
+                                    <div data-v-1f9b29e2="" class="img-wrap">
+                                        <img data-v-1f9b29e2="" src="img/13.jpg" alt="">
+                                    </div>
+                                    <p data-v-1f9b29e2="" class="app-name">木鱼</p>
+                                </div>
+                            </a>
+ 
+                            <a data-v-1f9b29e2="" href="lt/1.html" class="item" style="opacity: 1;">
+                                <div data-v-1f9b29e2="" class="content-wrap">
+                                    <div data-v-1f9b29e2="" class="img-wrap">
+                                        <img data-v-1f9b29e2="" src="img/3.jpg" alt="">
+                                    </div>
+                                    <p data-v-1f9b29e2="" class="app-name">流体模拟器</p>
+                                </div>
+                            </a>
+       
+                                <a data-v-1f9b29e2="" href="sjsy/1.html" class="item" style="opacity: 1;">
+                                <div data-v-1f9b29e2="" class="content-wrap">
+                                    <div data-v-1f9b29e2="" class="img-wrap">
+                                        <img data-v-1f9b29e2="" src="img/4.jpg" alt="">
+                                    </div>
+                                    <p data-v-1f9b29e2="" class="app-name">视觉盛宴</p>
+                                </div>
+                            </a>
+       
+           <a data-v-1f9b29e2="" href="szlp/1.html" class="item" style="opacity: 1;">
+                                <div data-v-1f9b29e2="" class="content-wrap">
+                                    <div data-v-1f9b29e2="" class="img-wrap">
+                                        <img data-v-1f9b29e2="" src="img/9.jpg" alt="">
+                                    </div>
+                                    <p data-v-1f9b29e2="" class="app-name">罗盘时钟</p>
+                                </div>
+                            </a>
+       
+           <a data-v-1f9b29e2="" href="fhyx/1.html" class="item" style="opacity: 1;">
+                                <div data-v-1f9b29e2="" class="content-wrap">
+                                    <div data-v-1f9b29e2="" class="img-wrap">
+                                        <img data-v-1f9b29e2="" src="img/10.jpg" alt="">
+                                    </div>
+                                    <p data-v-1f9b29e2="" class="app-name">负荷运行</p>
+                                </div>
+                            </a>
+       
+           <a data-v-1f9b29e2="" href="2048/1.html" class="item" style="opacity: 1;">
+                                <div data-v-1f9b29e2="" class="content-wrap">
+                                    <div data-v-1f9b29e2="" class="img-wrap">
+                                        <img data-v-1f9b29e2="" src="img/7.jpg" alt="">
+                                    </div>
+                                    <p data-v-1f9b29e2="" class="app-name">2048</p>
+                                </div>
+                            </a>
+       
+           <a data-v-1f9b29e2="" href="sjtz/1.html" class="item" style="opacity: 1;">
+                                <div data-v-1f9b29e2="" class="content-wrap">
+                                    <div data-v-1f9b29e2="" class="img-wrap">
+                                        <img data-v-1f9b29e2="" src="img/8.jpg" alt="">
+                                    </div>
+                                    <p data-v-1f9b29e2="" class="app-name">视力挑战</p>
+                                </div>
+                            </a>
+                            
+           <a data-v-1f9b29e2="" href="fj/1.html" class="item" style="opacity: 1;">
+                                <div data-v-1f9b29e2="" class="content-wrap">
+                                    <div data-v-1f9b29e2="" class="img-wrap">
+                                        <img data-v-1f9b29e2="" src="img/5.jpg" alt="">
+                                    </div>
+                                    <p data-v-1f9b29e2="" class="app-name">飞机避障</p>
+                                </div>
+                            </a>
+       
+               <a data-v-1f9b29e2="" href="ddl/1.html" class="item" style="opacity: 1;">
+                                <div data-v-1f9b29e2="" class="content-wrap">
+                                    <div data-v-1f9b29e2="" class="img-wrap">
+                                        <img data-v-1f9b29e2="" src="img/6.jpg" alt="">
+                                    </div>
+                                    <p data-v-1f9b29e2="" class="app-name">搭方块</p>
+                                </div>
+                            </a>
+       
+            <a data-v-1f9b29e2="" href="klgk/1.html" class="item" style="opacity: 1;">
+                                <div data-v-1f9b29e2="" class="content-wrap">
+                                    <div data-v-1f9b29e2="" class="img-wrap">
+                                        <img data-v-1f9b29e2="" src="img/12.jpg" alt="">
+                                    </div>
+                                    <p data-v-1f9b29e2="" class="app-name">坤了个坤</p>
+                                </div>
+                            </a>
+       
+            <a data-v-1f9b29e2="" href="tcs/1.html" class="item" style="opacity: 1;">
+                                <div data-v-1f9b29e2="" class="content-wrap">
+                                    <div data-v-1f9b29e2="" class="img-wrap">
+                                        <img data-v-1f9b29e2="" src="img/14.jpg" alt="">
+                                    </div>
+                                    <p data-v-1f9b29e2="" class="app-name">贪吃蛇</p>
+                                </div>
+                            </a>
+                        <!--结束-->
+                        
+                             </div>
+                        <div data-v-1f9b29e2="" class="app-list">
+                            <a data-v-1f9b29e2="" href="m.html" class="item" style="opacity: 1;">
+                                <div data-v-1f9b29e2="" class="content-wrap">
+                                    <div data-v-1f9b29e2="" class="img-wrap">
+                                        <img data-v-1f9b29e2="" src="appIcon.png" alt="">
+                                    </div>
+                                    <p data-v-1f9b29e2="" class="app-name">更多实用工具</p>
+                                </div>
+                            </a>
+                            
+                            
+                            <a data-v-1f9b29e2="" href="xiao.html" class="item" style="opacity: 1;">
+                                <div data-v-1f9b29e2="" class="content-wrap">
+                                    <div data-v-1f9b29e2="" class="img-wrap">
+                                        <img data-v-1f9b29e2="" src="appIcon.png" alt="">
+                                    </div>
+                                    <p data-v-1f9b29e2="" class="app-name">更多小游戏</p>
+                                </div>
+                                                    
+                            </a>
+                  
+                            <a data-v-1f9b29e2="" href="yy.html" class="item" style="opacity: 1;">
+                                <div data-v-1f9b29e2="" class="content-wrap">
+                                    <div data-v-1f9b29e2="" class="img-wrap">
+                                        <img data-v-1f9b29e2="" src="appIcon.png" alt="">
+                                    </div>
+                                    <p data-v-1f9b29e2="" class="app-name">栋易云音乐</p>
+                                </div>
+                                                    
+                            </a>
+                
+                                            <a data-v-1f9b29e2="" href="index.html" class="item" style="opacity: 1;">
+                                <div data-v-1f9b29e2="" class="content-wrap">
+                                    <div data-v-1f9b29e2="" class="img-wrap">
+                                        <img data-v-1f9b29e2="" src="appIcon.png" alt="">
+                                    </div>
+                                    <p data-v-1f9b29e2="" class="app-name">退出登录</p>
+                                </div>
+                                                    
+                            </a>
+                        <!-- 音乐播放器跨站开始 -->
+        <link rel="stylesheet" href="css/player.css">
+       <div id="QPlayer">  
+          <div id="pContent">
+             <div id="player">
+                 <span class="cover"></span>
+                     <div class="ctrl">
+            <div class="musicTag marquee">
+                <strong>Title</strong>
+                 <span> - </span>
+                <span class="artist">Artist</span>
+            </div>
+            <div class="progress">
+                <div class="timer left">0:00</div>
+                <div class="contr">
+                    <div class="rewind icon"></div>
+                    <div class="playback icon"></div>
+                    <div class="fastforward icon"></div>
+                </div>
+                <div class="right">
+                    <div class="liebiao icon"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="ssBtn">
+       <div class="adf"></div>
+    </div>
+</div>
+    <ol id="playlist"></ol>
+</div>
+   <script src="js/jquery.min.js"></script>
+   <script src="js/jquery.marquee.min.js"></script>
+<script>
+var    playlist = [
+{title: "网易热歌榜",artist: "随机音乐",mp3: "yy.html",cover: "appIcon.png",},];
+        var isRotate = true;<!--图片旋转-->
+        var autoplay = true;<!--自动播放-->
+</script>
+    <script src="js/player.js"></script>
+  <script>
+     function bgChange(){
+         var lis= $('.lib');
+        for(var i=0; i<lis.length; i+=2)
+        lis[i].style.background = 'rgba(246, 246, 246, 0.5)';
+        }
+        window.onload = bgChange;
+   </script>
+<!-- 音乐播放器跨站结束 -->
+ <script>
+    t.onclick=function (){wc.goQQFriend("2982166586")}
+   tt.onclick=function (){wc.goQQGroup(566378348)}
+    </script>
+                    </div>
+                </div>
+                <div data-v-1cb8f412="" data-v-1f9b29e2="" class="wrap">
+                    <a data-v-1cb8f412="" href="https://beian.miit.gov.cn">Dong出品</a>
+                </div>
+            </div>
+        </div>
+  
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/Mouse.js"></script><!-- 点击烟花特效 -->

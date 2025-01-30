@@ -1,0 +1,30 @@
+<html>
+ <head> 
+ <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+ <title>获取QQ头像</title>
+ <style>
+ img{
+    width:350px;
+    height:350px;
+    }
+ </style>
+ </head>
+ <!-- 栋 -->
+ <body>
+   <h1><img src="appIcon.png" alt="世界依然很大"/></h1>
+   <button onclick="b()">输入QQ号</button>
+   <button onclick="a()">保存图片</button>
+
+  <script>
+  
+  function b(){
+  let qq = prompt("请输入QQ号");
+  let url = "https://thirdqq.qlogo.cn/g?b=qq&nk="+qq+"&s=640"
+let img = document.querySelector("img")  
+  img.src = url}
+    function a(){
+        alert("我还不会保存头像,以后的事情交给以后去做吧!!!");
+    }
+  </script>
+ </body>
+</html>

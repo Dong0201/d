@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安全警告</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>警告</h1>
+        <p>即将访问:</p>
+        <p>神秘网站</p>
+        <p>你确定要访问吗？</p>
+        <p>请确保您了解访问此链接的潜在风险</p>
+        <button class="button" onclick="continueUnsafe()">是的，继续</button>
+        <button class="button" onclick="window.history.back();">取消</button>
+    </div>
+
+    <script>
+        function continueUnsafe() {
+            window.open("https://cznull.github.io/vsbm", "_blank");
+        }
+    </script>
+</body>
+</html>

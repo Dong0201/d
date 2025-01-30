@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小游戏区</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%); /* 使用渐变背景 */
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+    }
+    h1 {
+        margin: 20px 0;
+        font-size: 36px; /* 增大标题大小 */
+        color: #ffffff;
+    }
+    .gamebox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        max-width: 600px; /* 限制最大宽度 */
+    }
+    .gamebox button {
+        background-color: #ffffff;
+        color: #333;
+        border: none;
+        padding: 15px 20px; /* 调整按钮尺寸 */
+        margin: 10px 0;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        outline: none;
+        width: 100%; /* 使按钮宽度自适应容器宽度 */
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        border-bottom: none;
+        text-transform: uppercase;
+        position: relative;
+    }
+    .gamebox button:hover {
+        background-color: #e6e6e6;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        transform: translateY(-5px);
+    }
+    .gamebox button:active {
+        transform: translateY(-2px);
+    }
+    .gamebox .button-label {
+        color: #888;
+        font-size: 14px;
+        font-weight: normal;
+        margin-left: 10px; /* 增加与游戏名称的距离 */
+        position: absolute;
+        right: 20px; /* 将备注放在按钮右侧 */
+    }
+</style>
+</head>
+<body>
+
+<h1>小游戏区</h1>
+
+<div class="gamebox">
+    <button><a href="menu.html" style="text-decoration: none; color: #333;">AI五子棋<span class="button-label">作者自创</span></a></button>
+    <button><a href="ddd26.html" style="text-decoration: none; color: #333;">墓地逃亡<span class="button-label">作者自创</span></a></button>
+    <button><a href="game3.html" style="text-decoration: none; color: #333;">反射小球<span class="button-label">作者自创</span></a></button>
+    <button><a href="https://cdn.198434.com/cli/H5/sheep2sheepkun" style="text-decoration: none; color: #333;">坤了个坤<span class="button-label">作者推荐</span></a></button>
+    <button><a href="xinshuan.html" style="text-decoration: none; color: #333;">心算小游戏<span class="button-label">锻炼智力</span></a></button>
+    <button><a href="https://www.yikm.net/play?id=3501&amp;n=L2Zjcm9tL2R6bXgvU3VwZXIgTWFyaW8gQnJvcy4gKFcpIFshXS5uZXM=&amp" style="text-decoration: none; color: #333;">超级马里奥<span class="button-label">回忆童年</span></a></button>
+    <button><a href="https://poki.com/zh/g/2048#fullscreen" style="text-decoration: none; color: #333;">2048<span class="button-label">2048</span></a></button>
+    <button><a href="https://4399.com" style="text-decoration: none; color: #333;">点我获取更多在线小游戏<span class="button-label"></span></a></button>
+    
+</div>
+
+</body>
+</html>

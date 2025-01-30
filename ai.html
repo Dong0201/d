@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI聊天系统</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        .chat-container {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .chat-header {
+            text-align: center;
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .chat-messages {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 15px;
+            height: 300px;
+            overflow-y: auto;
+        }
+        .chat-message {
+            margin: 10px 0;
+            display: flex;
+        }
+        .chat-user, .chat-ai {
+            padding: 8px 12px;
+            border-radius: 6px;
+            max-width: 70%;
+        }
+        .chat-user {
+            background-color: #dcf8c6;
+            color: #388e3c;
+            margin-left: auto; /* 将用户消息对齐到右边 */
+        }
+        .chat-ai {
+            background-color: #ebeef5;
+            color: #333;
+        }
+        .chat-input-container {
+            display: flex;
+        }
+        .chat-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px 0 0 6px;
+            box-sizing: border-box;
+            outline: none;
+        }
+        .chat-send {
+            padding: 12px 20px;
+            background-color: #409eff;
+            color: #fff;
+            border: none;
+            border-radius: 0 6px 6px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            outline: none;
+        }
+        .chat-send:hover {
+            background-color: #66b1ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">AI聊天系统</div>
+        <div class="chat-messages" id="chatMessages">
+            <!-- 聊天消息会显示在这里 -->
+        </div>
+        <div class="chat-input-container">
+            <input type="text" class="chat-input" id="chatInput" placeholder="输入你的问题...">
+            <button class="chat-send" id="chatSend">发送</button>
+        </div>
+    </div>
+
+    <script>
+        // AI回复的函数
+        function aiResponse(userMessage) {
+            let response = '';
+            
+            // 基本问题的回复
+            if (userMessage === '你好') {
+                response = '你好啊，很高兴和你聊天！';
+            } else if (userMessage === '傻逼') {
+                response = '你才是傻逼，你全家都是傻逼！';
+            } else if (userMessage === '你是真人吗') {
+                response = '我不是真人，但我可以像真人一样和你聊天！';
+            } 
+            // 数学题的回复（仅支持简单的加减乘除）
+            else if (userMessage.match(/^\d+\s*[\+\-*/\s]\s*\d+$/)) {
+                try {
+                    response = `计算结果是：${eval(userMessage)}`;
+                } catch (e) {
+                    response = '哎呀，这个数学题好难哦，我不会做！';
+                }
+            } 
+            // 默认回复
+            else {
+                response = '我不太懂这个呢，能换个问题吗？';
+            }
+
+            return response;
+        }
+
+        // 处理用户输入
+        document.getElementById('chatSend').addEventListener('click', function() {
+            let userMessage = document.getElementById('chatInput').value.trim();
+            if (userMessage !== '') {
+                let chatMessages = document.getElementById('chatMessages');
+
+                // 创建用户消息元素
+                let userMsgElem = document.createElement('div');
+                userMsgElem.className = 'chat-message';
+                let userText = document.createElement('div');
+                userText.className = 'chat-user';
+                userText.innerText = userMessage;
+                userMsgElem.appendChild(userText);
+                chatMessages.appendChild(userMsgElem);
+
+                // 模拟AI回复的延迟
+                setTimeout(() => {
+                    // 获取AI回复
+                    let aiMessage = aiResponse(userMessage);
+                    let aiMsgElem = document.createElement('div');
+                    aiMsgElem.className = 'chat-message';
+                    let aiText = document.createElement('div');
+                    aiText.className = 'chat-ai';
+                    aiText.innerText = aiMessage;
+                    aiMsgElem.appendChild(aiText);
+                    chatMessages.appendChild(aiMsgElem);
+
+                    // 清空输入框
+                    document.getElementById('chatInput').value = '';
+
+                    // 滚动到底部
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 500); // 延迟500毫秒模拟AI思考时间
+            }
+        });
+    </script>
+</body>
+</html>

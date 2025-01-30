@@ -1,0 +1,24 @@
+{
+	"appName": "栋的百宝箱",
+	"appPackageName": "com.dongbox",
+	"appVersionName": "6.5",
+	"appVersionCode": 651,
+	"data": {		
+		"启用顶栏": true,
+		"顶栏标题": "Dong",
+		"顶栏颜色": "#0000FF",
+		"横屏": false,
+		"显示状态栏": true,
+		"启用进度条": true,
+		"进度条颜色": "#00FF00",
+		"支持打开外部应用": true,
+		"提示打开外部应用": false,
+		"启动页面": "index.html"
+	},
+	"indexPages": [
+		
+	],
+	"extraHeaders": {
+		
+	}
+}

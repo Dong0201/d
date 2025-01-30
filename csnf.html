@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>出生年份计算器</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f7f7f7;
+  }
+  .container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  h2 {
+    color: #333;
+  }
+  select, button {
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+  }
+  button:hover {
+    background-color: #4cae4c;
+  }
+  #result {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #5cb85c;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>选择年龄计算出生年份</h2>
+  <select id="ageSelector" onchange="calculateBirthYear()">
+    <!-- 选项将通过JavaScript动态生成 -->
+  </select>
+  <button onclick="calculateBirthYear()">计算</button>
+  <div id="result"></div>
+</div>
+
+<script>
+  // 获取当前年份
+  const currentYear = new Date().getFullYear();
+  // 创建年龄选择器
+  const ageSelector = document.getElementById('ageSelector');
+
+  // 动态生成年龄选项
+  for (let i = 0; i <= 100; i++) {
+    const option = document.createElement('option');
+    option.value = i;
+    option.textContent = i;
+    ageSelector.appendChild(option);
+  }
+
+  function calculateBirthYear() {
+    const age = parseInt(ageSelector.value, 10);
+    const birthYear = currentYear - age;
+    document.getElementById('result').textContent = `您是在 ${birthYear} 年出生的。`;
+  }
+</script>
+</body>
+</html>

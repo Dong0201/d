@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HP导航页</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #ffff00 0%, #ffff00 100%);
+        color: #ffff00;
+    }
+    header {
+        background-color: rgba(255, 255, 255, 0.9);
+        color: #ffff00;
+        padding: 20px;
+        text-align: center;
+        font-size: 24px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    .navbar {
+        background-color: rgba(255, 255, 255, 0.9);
+        overflow: hidden;
+        color: #333;
+        padding: 20px;
+        text-align: center;
+    }
+    .navbar .icon {
+        display: none;
+    }
+    .toolbar {
+        max-height: 0;
+        overflow: hidden;
+        background-color: rgba(255, 255, 255, 0.9);
+        transition: max-height 0.3s ease-in-out;
+    }
+    .toolbar a {
+        display: block;
+        color: #ffff00;
+        text-decoration: none;
+        padding: 14px 20px;
+        border-bottom: 1px solid #ddd;
+    }
+    .toolbar a:hover {
+        background-color: #f2f2f2;
+    }
+    .content {
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.9);
+        margin: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .content .intro {
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .content h2 {
+        color: #ffff00;
+    }
+    @media screen and (max-width: 600px) {
+        .navbar a:not(:first-child) {display: none;}
+        .navbar a.icon {
+            float: right;
+            display: block;
+        }
+        .navbar.responsive {position: relative;}
+        .navbar.responsive .icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .navbar.responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>Dong</header>
+
+<div class="navbar" id="navbar">
+    <a class="icon" onclick="toggleToolbar()">&#9776;</a>
+    导航页
+</div>
+
+<div class="toolbar" id="toolbar">
+
+    <a href="SZ.html" onclick="toggleToolbar()">小游戏</a>
+
+</div>
+
+<div class="content">
+    <div class="intro">
+        <h2>欢迎来到Dong的导航页</h2>
+        <p>By.Dong</p>
+        <p>这个导航页好像有点不正常</p>
+    </div>
+    <div class="intro">
+        <h2>使用功能?</h2>
+        <p>请点击右上角三条杠</p>
+    </div>
+    <div class="intro">
+        <h2>关于我们</h2>
+        <p>联系方式:372203916@qq.com</p>
+    </div>
+</div>
+
+<script>
+    function toggleToolbar() {
+        var toolbar = document.getElementById("toolbar");
+        if (toolbar.style.maxHeight === "0px") {
+            toolbar.style.maxHeight = "500px";
+        } else {
+            toolbar.style.maxHeight = "0px";
+        }
+    }
+</script>
+
+</body>
+</html>

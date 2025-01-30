@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工具箱</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #38a3ff, #98a3ff);
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        animation: fadeIn 1s ease-out forwards;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .navbar {
+        text-align: center;
+        width: 80%;
+        max-width: 600px; /* 限制最大宽度 */
+    }
+    h1 {
+        margin: 0;
+        padding-bottom: 20px;
+        font-size: 32px;
+        color: #ffffff;
+    }
+    .toolbox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        opacity: 0;
+        animation: slideIn 1s ease-out 1s forwards; /* 延迟1秒开始进入动画 */
+    }
+    @keyframes slideIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .toolbox button {
+        background-color: #ffffff;
+        color: #333;
+        border: none;
+        padding: 25px 30px; /* 增大按钮尺寸 */
+        margin: 15px 0;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        outline: none;
+        width: 100%; /* 使按钮宽度自适应容器宽度 */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: none;
+        text-transform: uppercase;
+        border: 1px solid transparent; /* 增加边框以便更好的视觉反馈 */
+    }
+    .toolbox button:hover {
+        background-color: #e6e6e6;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        transform: translateY(-5px);
+        border: 1px solid #ccc; /* 增加边框以便更好的视觉反馈 */
+    }
+    .toolbox button:active {
+        transform: translateY(-2px);
+    }
+    .button-label {
+        color: #888;
+        font-size: 14px;
+        font-weight: normal;
+        margin-left: 10px; /* 增加与工具名称的距离 */
+    }
+</style>
+</head>
+<body>
+
+<div class="navbar">
+    <h1>实用工具</h1>
+    <div class="toolbox">
+        <button><a href="ai.html" style="text-decoration: none; color: #333; width: 100%; display: block;">AI聊天系统<span class="button-label">一键跳转</span></a></button>
+        <button><a href="qqicon.html" style="text-decoration: none; color: #333; width: 100%; display: block;">获取QQ头像<span class="button-label">一键跳转</span></a></button>
+        <button><a href="llq.html" style="text-decoration: none; color: #333; width: 100%; display: block;">DONG浏览器<span class="button-label">一键跳转</span></a></button>
+        <button><a href="wrn.html" style="text-decoration: none; color: #333; width: 100%; display: block;">渲染测试<span class="button-label">一键跳转</span></a></button>
+        <button><a href="tools.html" style="text-decoration: none; color: #333; width: 100%; display: block;">下一页<span class="button-label">更多功能</span></a></button>
+    </div>
+</div>
+
+</body>
+</html>
