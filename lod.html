@@ -1,65 +1,65 @@
-<！doctype html>
-<超文本标记语言朗="en">
-<头>
-     <元字符集="UTF-8">
-     <元姓名="视口" 内容="宽度=设备宽度，初始比例=1.0">
-     <标题>人机检测</标题>
-     <风格>
-身体{
-             字体系列:Arial,无衬线;
-             边缘:0;
-             填充:0;
-             背景色：#f7f7f7；
-             显示:弯曲;
-             justify-content:中心;
-             对齐项目:中心;
-             高度:100VH;
-             文本对齐:中心;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>人机检测</title>
+     <style>
+         body {
+             font-family: Arial, sans-serif;
+             margin: 0;
+             padding: 0;
+             background-color: #f7f7f7;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             height: 100vh;
+             text-align: center;
          }
-.容器{
-             背景色:白色的;
-             填充:20PX;
-             边界半径:5PX;
-             箱形阴影:0 2PX 4PX RGBA(0,0,0,0.1);
-             宽度:300PX;
+         .container {
+             background-color: white;
+             padding: 20px;
+             border-radius: 5px;
+             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+             width: 300px;
          }
-#progressBar{
-             宽度:100%;
-             高度:20PX;
-             背景色：#ddd；
-             边界半径:5PX;
-             溢出:隐藏的;
-             位置:相对的;
-             底边距:10PX;
+         #progressBar {
+             width: 100%;
+             height: 20px;
+             background-color: #ddd;
+             border-radius: 5px;
+             overflow: hidden;
+             position: relative;
+             margin-bottom: 10px;
          }
-#progressBar div{
-             高度:100%;
-             宽度:0;
-             背景色：#4CAF50；
-             过渡:宽度 2s 缓解;
+         #progressBar div {
+             height: 100%;
+             width: 0;
+             background-color: #4CAF50;
+             transition: width 2s ease;
          }
-#result{
-             底边距:10PX;
+         #result {
+             margin-bottom: 10px;
          }
-.按钮{
-             显示:内联块;
-             上边距:10PX;
-             填充:10PX 20PX;
-             背景色：#4CAF50；
-             颜色:白色的;
-             文本对齐:中心;
-             文字装饰:没有一个;
-             字体大小:16PX;
-             边缘:4PX 2PX;
-             光标:指针;
-             边境:没有一个;
-             边界半径:5PX;
-             显示:没有一个;/*最初隐藏按钮*/
+         .button {
+             display: inline-block;
+             margin-top: 10px;
+             padding: 10px 20px;
+             background-color: #4CAF50;
+             color: white;
+             text-align: center;
+             text-decoration: none;
+             font-size: 16px;
+             margin: 4px 2px;
+             cursor: pointer;
+             border: none;
+             border-radius: 5px;
+             display: none; /* Initially hide the button */
          }
-     </风格>
-</头>
-<身体>
-     <div班级="容器">
+     </style>
+</head>
+<body>
+     <div class="container">
          <h1>正在进行检测，检测完成后即可查看彩蛋</h1>
          <div id="progressBar">
              <div id="progress"></div>
@@ -83,7 +83,7 @@
                      progressBar.style.width = '100%';
                      setTimeout(function() {
                          // 检测完成，显示结果
-var issecure=(location.protocol==="：")？真：假；
+                         var isSecure = (location.protocol === ":") ? true : false;
                          if (isSecure) {
                              resultElement.innerText = "检测通过";
                              continueBtn.style.display = 'none'; // Hide button if secure
